@@ -1,0 +1,9 @@
+.ant-card-head-title{
+    color:blue;
+}
+.ant-collapse {
+    border:inherit !important;
+}
+.ant-collapse-content {
+    overflow: visible;
+}
