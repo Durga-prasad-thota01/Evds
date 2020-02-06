@@ -12,14 +12,13 @@ import moment from 'moment';
 import { withRouter } from 'react-router-dom';
 
 function Mobile(props) {
-    
 let [mobileno, setMobileno] = useState('');
 let [amount,setAmount] = useState('');
 let [recharge,setRecharge]=useState({
   mobileno:'',
   amount:''
 })
-
+let [process,setProcess]=useState(false)
 let [show,setShow]=useState(true);
 let [recharged_datetime,setRecharged_datetime]= useState('');
 let changeHandler=(e)=>{
@@ -58,6 +57,7 @@ let changeHandler=(e)=>{
   console.log(recharge.mobileno,recharge.amount);
 }
   let submitHandler=(e)=>{
+    setProcess(true)
     let mobileno=recharge.mobileno;
     let amount=recharge.amount;
     console.log(mobileno,amount)
@@ -67,21 +67,39 @@ let changeHandler=(e)=>{
        "amount":amount,
       "recharged_datetime": moment().format(),
     }
+    let key=localStorage.getItem("token");
     //  console.log(mobile,amt)  ;
-    axios.post(" http://evd-project.herokuapp.com/customer_recharge/" ,data)
+    axios.post("https://evd-project.herokuapp.com/api/recharge/" ,data,
+    {headers: {'content-type':'application/json','Authorization':`Token ${key}` }})
+    
     .then(resp=>{ console.log(resp.data)
+      setProcess(false)
       if(resp.data){     
         localStorage.setItem("mobile",mobileno);
         localStorage.setItem("amt",amount);
         props.history.push("/Sucess");       
       }
-  else{
-    alert("error");
-  }
+     
+      else{
+        props.history.push("/Fail"); 
+      }
 })
+.catch(error => {
+  props.history.push("/Fail");
+
+  return error;
+});
   }
     return (
         <div >
+        {process?(
+          <div>
+             <h3>Process Pending....</h3>        
+          </div>
+        ):(
+          <div>
+
+         
         <Row>
         <Col xs={1} sm={1} md={6} lg={8} xl={8}> </Col>
         <Col xs={22} sm={22} md={12} lg={8} xl={8}>
@@ -128,6 +146,8 @@ Recharge
         </Col>
         <Col xs={1} sm={1} md={6} lg={8} xl={8}></Col>
       </Row>
+      </div>
+      )}
         </div>
     )
 }

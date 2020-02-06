@@ -26,13 +26,13 @@ export default function Sucess() {
    
         <Card >
             <h1  style={{textAlign:"center"}} >Status Update</h1>
-            <h3  style={{textAlign:"center"}}>Recharge sucessful for</h3>
+            <h2  style={{textAlign:"center"}}>Recharge sucessful for</h2>
             <h3  style={{textAlign:"center"}} >{mob}</h3>
             <h3  style={{textAlign:"center"}} >for {amunt} BIR</h3>
             <Row>
       <Col  xs={5} sm={5} md={5} lg={8} xl={3}></Col>
       <Col xs={14} sm={14} md={14} lg={8} xl={6}></Col>
-             <Link to="/" >
+             <Link to="/Home" >
          <Button  style={{textAlign:"center"}} type="primary">New Recharge</Button>
          
        </Link>

@@ -16,8 +16,11 @@ let[data,setData]=useState([]);
 let[visible,setVisible]=useState(false);
 const { Panel } = Collapse;
 useEffect(()=>{
+  let key=localStorage.getItem("token");
     
-    axios.get(" http://evd-project.herokuapp.com/customer_recharge/" )
+    axios.get("https://evd-project.herokuapp.com/api/recharge/",
+    {headers: {'content-type':'application/json','Authorization':`Token ${key}` }}
+    )
         .then(resp=>{setData(resp.data)})
        
   },[])
@@ -45,7 +48,7 @@ function callback(key) {
       <Col xs={1} sm={1} md={6} lg={8} xl={8}>  
       </Col>
       <Col xs={22} sm={22} md={12} lg={8} xl={8}>
-      <h3>Transaction History</h3>
+      <h1>Transaction History</h1>
    { 
       data.map(i=>(
         <Collapse  onChange={callback}
@@ -60,25 +63,25 @@ function callback(key) {
   <Col xs={1} sm={1} md={1} lg={1} xl={1} ></Col>
   </Row>
 <Row>
-      <Col xs={1} sm={1} md={1} lg={1} xl={1} ></Col>
-      <Col xs={9} sm={9} md={11} lg={11} xl={11} >
+      <Col xs={1} sm={1} md={1} lg={1} xl={2} ></Col>
+      <Col xs={9} sm={9} md={11} lg={11} xl={10} >
       <div>{i.amount} /-  </div>
       </Col>
-      <Col xs={13} sm={13} md={11} lg={11} xl={11}>
+      <Col xs={13} sm={13} md={11} lg={11} xl={10}>
       <div >{ moment(i.recharged_datetime).format('MMMM Do YYYY, h:mm a')}</div>
       </Col> <br/><br/>
-      <Col xs={1} sm={1} md={1} lg={11} xl={1} ></Col>
+      <Col xs={1} sm={1} md={1} lg={11} xl={2} ></Col>
     </Row>
     <Panel >
       <Row>
       <Col xs={0} sm={0} md={0} lg={0} xl={2}> </Col>
       <Col xs={24} sm={24} md={24} lg={24} xl={24}>
       <Card title="Payment Details " bordered={true} style={{borderRadius:"10px",border:"1px solid black"}} >
-      <p>Transaction Id:</p> {i.order_id}<br></br>
+      <p>Transaction Id:</p> {i.transaction_id}<br></br>
          <br></br>
-         <Button type="primary" onClick={handleOk} style={{position:"relative",bottom:"0px", width:"50%"}}>
-        ok
-       </Button>
+      
+      
+
          </Card>
         </Col>
       <Col xs={0} sm={0} md={0} lg={0} xl={2}> </Col>

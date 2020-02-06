@@ -18,7 +18,7 @@ import { withRouter } from 'react-router-dom';
       <Col  xs={1} sm={1} md={6} lg={8} xl={8}></Col>
       <Col  xs={22} sm={22} md={12} lg={8} xl={8}>
         <Card  style={{marginTop:"50px" }}>
-              <h3>confirm Logout</h3>
+              <h2>confirm Logout</h2>
          <Button type="primary" onClick={LogoutHandler}>Logout</Button>
       </Card>
       </Col>
