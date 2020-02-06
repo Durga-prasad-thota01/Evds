@@ -58,44 +58,69 @@ import axios from 'axios';
       <h1>Registration</h1>
      
         <Card  style={{marginTop:"50px", width: 400 }}>
-        <Form >
+        <Form  onSubmit={Handler}>
         <Row>
         <Col span={10}>
+        <Form.Item>
         <Input 
+        required
          placeholder="First Name"
          type="text"
+         title="Valid Name"
          onChange={e=>setFirstname(e.target.value)}
          /> 
+         </Form.Item>
         </Col>
         <Col span={4}></Col>
         <Col span={10}>
+        <Form.Item>
         <Input 
+        required
         placeholder="Last Name"
         type="text"
+        title="Valid Name"
         onChange={e=>setLastname(e.target.value)}
          />
+         </Form.Item>
         </Col>
-        </Row> <br/>
+        </Row> 
+        <Form.Item>
          <Input 
+         required
          placeholder="User Name"
          type="text"
+         title="Valid username"
          onChange={e=>setUsername(e.target.value)}
-         /> <br/><br/>
+         /> 
+         </Form.Item>
+         <Form.Item>
          <Input 
+         required
          placeholder="Enter Your Email Address"
          type="email"
+         title="@gmail.com"
          onChange={e=>setEmail(e.target.value)}
-           /> <br/><br/>
+           />
+           </Form.Item>
+           <Form.Item>
          <Input 
+         required
          placeholder="Password"
          type="password"
+         title="minimum 8 characters"
          onChange={e=>setPassword(e.target.value)}
-         /> <br/><br/>
+         />
+         </Form.Item>
+         <Form.Item>
           <Input 
+          required
           placeholder="Confirm Password"
           type="password"
+          title="minimum 8 characters"
           onChange={e=>setConfirmpassword(e.target.value)}
-          /> <br/><br/>
+          />
+          </Form.Item> 
+          <Form.Item>
           <select class="browser-default " style={{width:"100%"}}  required
           onChange={e=>setUsertype(e.target.value)} 
                  >
@@ -104,11 +129,13 @@ import axios from 'axios';
                    <option value="1">Retailer</option>
                   
    </select>
-        
-        <br/><br/>
+   </Form.Item>
+       
+        <Form.Item>
          <Button type="primary"
           onClick={Handler}
          >Sign Up</Button>
+         </Form.Item>
          </Form>
       </Card>
      

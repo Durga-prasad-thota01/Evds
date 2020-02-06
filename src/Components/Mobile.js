@@ -94,7 +94,13 @@ let changeHandler=(e)=>{
         <div >
         {process?(
           <div>
-             <h3>Process Pending....</h3>        
+          <Row>
+        <Col xs={2} sm={2} md={6} lg={8} xl={8}> </Col>
+        <Col xs={20} sm={20} md={12} lg={8} xl={8}>
+             <h3> Please Wait....</h3>  
+             </Col>
+             <Col xs={2} sm={2} md={6} lg={8} xl={8}></Col>      
+             </Row>
           </div>
         ):(
           <div>

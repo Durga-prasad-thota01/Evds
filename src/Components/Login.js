@@ -17,7 +17,7 @@ export default function Login(props) {
   // console.log(username,email,password)
 
 
-  let handleClick=(e)=>{
+  let handlerLogin=(e)=>{
     e.preventDefault();
   let logindata={
     "username":usrname,
@@ -51,23 +51,26 @@ export default function Login(props) {
       <Col span={8}>
       <h1 style={{marginLeft:"156px"}}>Login</h1>
         <Card  style={{marginTop:"", width: 400 }}>
-        <Form  className="login-form">
+        <Form  onSubmit={handlerLogin} className="login-form">
         <Form.Item>
          
         
             <Input
+            required
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Username"
+              title=" Enter Valid UserName"
               onChange={e=>setUsrname(e.target.value)}
             />
       
         </Form.Item>
         <Form.Item>
          
-        
         <Input
+        required
           prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Email"
+          title="Enter valid Email"
           onChange={e=>setGmail(e.target.value)}
         />
   
@@ -75,9 +78,11 @@ export default function Login(props) {
         <Form.Item>
           
             <Input
+            required
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
               placeholder="Password"
+              title="Enter valid password"
               onChange={e=>setPass(e.target.value)}
             />
         </Form.Item>
@@ -93,7 +98,7 @@ export default function Login(props) {
         <Button type="primary" style={{marginLeft:"150px"}}
         
         htmlType="submit" className="login-form-button"
-        onClick={handleClick}
+        
         >
             Log in
           </Button><br/>
