@@ -22,31 +22,29 @@ let [process,setProcess]=useState(false)
 let [show,setShow]=useState(true);
 let [recharged_datetime,setRecharged_datetime]= useState('');
 let changeHandler=(e)=>{
-
+  const number = parseInt(e.target.value || 0, 10);  
+   if (isNaN(number)) {
+     
+  return; 
+ }
 
   
 // if(name=="mobileno"){
         //   setMobileno(val)
         //   // mbl=val;
-
     // }
     // if(name=="amount"){
     //   console.log(val)  
-
     //   //  amt=val;
-
     //   setAmount(val)
-
     // }
-
-
   setRecharge({
     ...recharge,
   [e.target.name]: e.target.value
   })
   let mob = parseInt(recharge.mobileno)
   let amt = recharge.amount;
-  console.log(typeof(mob))
+  // console.log(typeof(mob))
       //  let MobileNumber=/^\d{10}$/;
   // console.log(mob, amt)
   if ((/^\d{10}$/.test(mob))&&(amt>=1 && amt <= 100000)) {
@@ -122,6 +120,7 @@ placeholder="Mobile Number"
   maxLength="10"
   required
   name="mobileno"
+  autoComplete="off"
   value={recharge.mobileno}
   onChange={changeHandler}
 />
@@ -133,6 +132,7 @@ placeholder="Mobile Number"
   placeholder="Amount"
   minLength="1"
   maxLength="6"
+  autoComplete="off"
   name="amount"
   value={recharge.amount}
   required

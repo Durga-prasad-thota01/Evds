@@ -16,9 +16,12 @@ export default function Profile (){
 useEffect(()=>{
 axios.get("https://evd-project.herokuapp.com/api/current_user_profile/",
 {headers: {'content-type':'application/json','Authorization':`Token ${key}` }})
-.then (resp=>{setProfile(resp.data)
+.then (resp=>
+  {setProfile(resp.data)
 setUsername(resp.data.username)
 setEmail(resp.data.email)
+console.log(resp.data)
+
 }
 )
 },[])
@@ -36,12 +39,8 @@ let handleSubmit=()=>{
          <Row>
       <Col xs={1} sm={1} md={6} lg={8} xl={8}></Col>
       <Col xs={22} sm={22} md={12} lg={8} xl={8}>
-     
-        
-      <h1>Profile</h1>
-   
+         <h1>Profile</h1>
       <Card >
-      
          {hide?(
            <div>
            <h3>{profile.username}</h3><br></br>
@@ -53,8 +52,7 @@ let handleSubmit=()=>{
            <input 
            value={email}
            type="text"
-           onChange={e=>setEmail(e.target.value)} >
-           
+           onChange={e=>setEmail(e.target.value)}>
            </input> <br/><br/>
            <input
            type="text"

@@ -4,6 +4,7 @@ import { Card } from 'antd';
 import { Row, Col } from 'antd';
 import { Input } from 'antd';
 import { Button,Form } from 'antd';
+import { Link } from "react-router-dom";
 
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
@@ -57,7 +58,7 @@ import axios from 'axios';
       <Col span={8}>
       <h1>Registration</h1>
      
-        <Card  style={{marginTop:"50px", width: 400 }}>
+        <Card  style={{marginTop:"10px", width: 350 }}>
         <Form  onSubmit={Handler}>
         <Row>
         <Col span={10}>
@@ -66,6 +67,7 @@ import axios from 'axios';
         required
          placeholder="First Name"
          type="text"
+         autoComplete="off"
          title="Valid Name"
          onChange={e=>setFirstname(e.target.value)}
          /> 
@@ -78,6 +80,7 @@ import axios from 'axios';
         required
         placeholder="Last Name"
         type="text"
+        autoComplete="off"
         title="Valid Name"
         onChange={e=>setLastname(e.target.value)}
          />
@@ -89,6 +92,7 @@ import axios from 'axios';
          required
          placeholder="User Name"
          type="text"
+         autoComplete="off"
          title="Valid username"
          onChange={e=>setUsername(e.target.value)}
          /> 
@@ -98,6 +102,7 @@ import axios from 'axios';
          required
          placeholder="Enter Your Email Address"
          type="email"
+         autoComplete="off"
          title="@gmail.com"
          onChange={e=>setEmail(e.target.value)}
            />
@@ -107,6 +112,7 @@ import axios from 'axios';
          required
          placeholder="Password"
          type="password"
+         autoComplete="off"
          title="minimum 8 characters"
          onChange={e=>setPassword(e.target.value)}
          />
@@ -116,6 +122,7 @@ import axios from 'axios';
           required
           placeholder="Confirm Password"
           type="password"
+          autoComplete="off"
           title="minimum 8 characters"
           onChange={e=>setConfirmpassword(e.target.value)}
           />
@@ -130,12 +137,28 @@ import axios from 'axios';
                   
    </select>
    </Form.Item>
-       
+   <Row>
+   <Col xs={8} sm={8} md={8} lg={8} xl={8}> </Col>
+   <Col xs={8} sm={8} md={8} lg={8} xl={8}>
         <Form.Item>
          <Button type="primary"
           onClick={Handler}
          >Sign Up</Button>
          </Form.Item>
+         <Form.Item>
+
+         <Link to="/"  >
+
+         <Button type="primary"
+          
+         >Sign In here ?</Button>
+         </Link>
+        
+        
+         </Form.Item>
+         </Col>
+         <Col xs={8} sm={8} md={8} lg={8} xl={8}></Col>
+         </Row>
          </Form>
       </Card>
      

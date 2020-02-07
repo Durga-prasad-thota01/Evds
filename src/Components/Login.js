@@ -11,7 +11,7 @@ import { Form, Icon,Checkbox } from 'antd';
 import { Button } from 'antd';
 export default function Login(props) {
 
-  let[usrname,setUsrname]=useState("");
+  // let[usrname,setUsrname]=useState("");
   let [gmail,setGmail]=useState("");
   let[pass,setPass]=useState("");
   // console.log(username,email,password)
@@ -20,7 +20,7 @@ export default function Login(props) {
   let handlerLogin=(e)=>{
     e.preventDefault();
   let logindata={
-    "username":usrname,
+    // "username":usrname,
     "email":gmail,
     "password":pass
    
@@ -47,12 +47,12 @@ export default function Login(props) {
     return (
         <div >
          <Row>
-      <Col span={8}></Col>
-      <Col span={8}>
-      <h1 style={{marginLeft:"156px"}}>Login</h1>
-        <Card  style={{marginTop:"", width: 400 }}>
+      <Col xs={2} sm={2} md={6} lg={8} xl={8}></Col>
+      <Col  xs={20} sm={20} md={12} lg={8} xl={8}>
+      <h1 style={{}}>Login</h1>
+        <Card  style={{marginTop:"",  }}>
         <Form  onSubmit={handlerLogin} className="login-form">
-        <Form.Item>
+       {/* <Form.Item>
          
         
             <Input
@@ -62,14 +62,14 @@ export default function Login(props) {
               title=" Enter Valid UserName"
               onChange={e=>setUsrname(e.target.value)}
             />
-      
-        </Form.Item>
+       </Form.Item>  */}
         <Form.Item>
          
         <Input
         required
           prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
           placeholder="Email"
+          autoComplete="off"
           title="Enter valid Email"
           onChange={e=>setGmail(e.target.value)}
         />
@@ -81,6 +81,7 @@ export default function Login(props) {
             required
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
+              autoComplete="off"
               placeholder="Password"
               title="Enter valid password"
               onChange={e=>setPass(e.target.value)}
@@ -88,32 +89,38 @@ export default function Login(props) {
         </Form.Item>
         <Form.Item>
         <Row>
-        <Col span={12}></Col>
-        <Col span={12}>
-        <Link to="/Forgot" style={{marginLeft:"56px"}} className="login-form-forgot" >
+        <Col xs={6} sm={6} md={6} lg={10} xl={16}></Col>
+        <Col xs={18} sm={18} md={18} lg={14} xl={8}>
+        <Link to="/Forgot" style={{}} className="login-form-forgot" >
         Forgot password
       </Link>
         </Col>
       </Row>
-        <Button type="primary" style={{marginLeft:"150px"}}
+      <Row>
+        <Col xs={8} sm={8} md={8} lg={8} xl={8}> </Col>
+        <Col xs={8} sm={8} md={8} lg={8} xl={8}>
+        <Button type="primary" style={{}}
         
         htmlType="submit" className="login-form-button"
         
         >
-            Log in
+            Sign In
           </Button><br/>
-     <p style={{marginLeft:"170px"}} > OR </p>
-          <Link to="/Register" style={{marginLeft:"136px"}}>
-          <Button type="primary" style={{marginLeft:"0px"}} htmlType="submit" >
+     <p style={{marginLeft:"26px"}} > OR </p>
+          <Link to="/Register" style={{}}>
+          <Button type="primary" style={{}} htmlType="submit" >
 
-          Register Here
+          Sign Up Here
           </Button> </Link>
+          </Col>
+          <Col xs={8} sm={8} md={8} lg={8} xl={8}> </Col>
+          </Row>
         </Form.Item>
       </Form>
 
       </Card>
       </Col>
-      <Col span={8}></Col>
+      <Col xs={2} sm={2} md={6} lg={8} xl={8}></Col>
     </Row>
         </div>
     )
