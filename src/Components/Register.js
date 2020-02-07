@@ -128,7 +128,7 @@ import axios from 'axios';
           />
           </Form.Item> 
           <Form.Item>
-          <select class="browser-default " style={{width:"100%"}}  required
+          <select class="browser-default " style={{width:"100%",height:"32px"}}  required
           onChange={e=>setUsertype(e.target.value)} 
                  >
                    <option value="" disabled selected>Select User Type</option>
