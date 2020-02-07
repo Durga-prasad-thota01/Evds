@@ -17,7 +17,7 @@ export default function Fail() {
             <h3 style={{textAlign:"center"}}>sorry,</h3>
             <h2 style={{textAlign:"center"}}>Payment failure for</h2>
             <h3 style={{textAlign:"center"}}>{localStorage.getItem("mobile")}</h3>
-            <h3 style={{textAlign:"center"}}>for {localStorage.getItem("amt")} Rs</h3>
+            <h3 style={{textAlign:"center"}}>with {localStorage.getItem("amt")} Rs</h3>
             <Row>
               <Col xs={5} sm={5} md={5} lg={8} xl={2}></Col>
               <Col xs={14} sm={14} md={14} lg={8} xl={6}>

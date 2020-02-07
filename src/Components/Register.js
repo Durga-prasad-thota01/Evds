@@ -54,11 +54,11 @@ import axios from 'axios';
     return (
         <div >
          <Row>
-      <Col span={8}></Col>
-      <Col span={8}>
+      <Col xs={2} sm={2} md={6} lg={8} xl={8}></Col>
+      <Col xs={20} sm={20} md={12} lg={8} xl={8}>
       <h1>Registration</h1>
      
-        <Card  style={{marginTop:"10px", width: 350 }}>
+        <Card  style={{marginTop:"10px", }}>
         <Form  onSubmit={Handler}>
         <Row>
         <Col span={10}>
@@ -163,7 +163,7 @@ import axios from 'axios';
       </Card>
      
       </Col>
-      <Col span={8}></Col>
+      <Col xs={2} sm={2} md={6} lg={8} xl={8}></Col>
     </Row>
     
         </div>
