@@ -1,12 +1,19 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import 'antd/dist/antd.css';
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
 import { Link } from "react-router-dom";
 
 import { Button } from 'antd';
-export default function Fail() {
+export default function Fail(props) {
    
+  useEffect(()=>{  
+    if (!localStorage.length)   
+    {
+      props.history.push("./"); 
+        }
+  },[])
+
     return (
         <div style={{marginTop:"50px" }}  >
          <Row>

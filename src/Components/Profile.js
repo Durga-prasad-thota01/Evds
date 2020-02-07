@@ -5,13 +5,23 @@ import axios from 'axios';
 const { Paragraph } = Typography;
 const { Text } = Typography;
 const { Title } = Typography;
-export default function Profile (){
+export default function Profile (props){
     let[username,setUsername]=useState('');
     let[email,setEmail]=useState('');
     let [edit,setEdit]=useState(true);
     let [hide,setHide]=useState(true)
     let[profile,setProfile]=useState([]);
 
+    useEffect(()=>{  
+        if (!localStorage.length)   
+        {
+          props.history.push("./"); 
+            }
+      },[])
+
+
+
+    
     let key=localStorage.getItem("token");
 useEffect(()=>{
 axios.get("https://evd-project.herokuapp.com/api/current_user_profile/",

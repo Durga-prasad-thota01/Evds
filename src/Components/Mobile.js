@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import 'antd/dist/antd.css';
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
@@ -21,6 +21,14 @@ let [recharge,setRecharge]=useState({
 let [process,setProcess]=useState(false)
 let [show,setShow]=useState(true);
 let [recharged_datetime,setRecharged_datetime]= useState('');
+
+useEffect(()=>{  
+  if (!localStorage.length)   
+  {
+    props.history.push("./"); 
+      }
+},[])
+
 let changeHandler=(e)=>{
   const number = parseInt(e.target.value || 0, 10);  
    if (isNaN(number)) {

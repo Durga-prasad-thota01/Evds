@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect}from 'react';
 import 'antd/dist/antd.css';
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
@@ -6,6 +6,14 @@ import { Input } from 'antd';
 import { Button } from 'antd';
 import { withRouter } from 'react-router-dom';
  function Logout(props) {
+    useEffect(()=>{  
+        if (!localStorage.length)   
+        {
+          props.history.push("./"); 
+            }
+      },[])
+
+
     let LogoutHandler=()=>{
         if(window.confirm("are you sure you want to logout!"))
         {      localStorage.clear();  

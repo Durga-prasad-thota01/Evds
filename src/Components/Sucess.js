@@ -5,9 +5,17 @@ import { Row, Col } from 'antd';
 import { Link } from "react-router-dom";
 
 import { Button } from 'antd';
-export default function Sucess() {
+export default function Sucess(props) {
     let [mob,setMob]=useState('');
   let [amunt,setAmunt]=useState('');
+
+  useEffect(()=>{  
+    if (!localStorage.length)   
+    {
+      props.history.push("./"); 
+        }
+  },[])
+
     useEffect(()=>{
         let mob=localStorage.getItem("mobile");
         if(mob){
@@ -19,7 +27,7 @@ export default function Sucess() {
         }
        },[])
     return (
-        <div style={{marginTop:"50px" }} >
+        <div style={{marginTop:"50px" }}>
          <Row>
       <Col  xs={1} sm={1} md={6} lg={8} xl={8}></Col>
       <Col xs={22} sm={22} md={12} lg={8} xl={8}>

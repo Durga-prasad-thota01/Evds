@@ -10,11 +10,20 @@ import moment from 'moment';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
-const History=()=>{
+const History=(props)=>{
 let[data,setData]=useState([]);
     
 let[visible,setVisible]=useState(false);
 const { Panel } = Collapse;
+
+useEffect(()=>{  
+  if (!localStorage.length)   
+  {
+    props.history.push("./"); 
+      }
+},[])
+
+
 useEffect(()=>{
   let key=localStorage.getItem("token");
     

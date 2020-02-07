@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import 'antd/dist/antd.css';
 // import Login from './Login';
 import Mobile from './Mobile';
@@ -12,7 +12,14 @@ const { TabPane } = Tabs;
 function callback(key) {
     console.log(key);
   }
-export default function Home() {
+export default function Home(props) {
+
+  useEffect(()=>{  
+    if (!localStorage.length)   
+    {
+      props.history.push("./"); 
+        }
+  },[])
     return (
         <div >
 
