@@ -5,11 +5,8 @@ import { Row, Col } from 'antd';
 import { Input } from 'antd';
 import { Button,Form } from 'antd';
 import { Link } from "react-router-dom";
-
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-
-
  function Register(props) {
    let [firstname,setFirstname]=useState("")
    let [lastname,setLastname]=useState('')
@@ -24,7 +21,7 @@ import axios from 'axios';
   //  const handleChange=()=>{
 
   //  }
-   
+
    let Handler=(e)=>{
       
     e.preventDefault();
@@ -45,11 +42,7 @@ import axios from 'axios';
         alert("Registered succesfully")
         props.history.push("/");     
       }
-      else{
-        alert("Already Registered ....");
-     }
     },(error=>{
-      
         alert("Already Registered ....");
     })
     )
@@ -145,7 +138,7 @@ import axios from 'axios';
    <Col xs={8} sm={8} md={8} lg={8} xl={8}>
         <Form.Item>
          <Button type="primary"
-          onClick={Handler}
+         htmlType="submit"
          >Sign Up</Button>
          </Form.Item>
          <Form.Item>
@@ -153,22 +146,17 @@ import axios from 'axios';
          <Link to="/"  >
 
          <Button type="primary"
-          
          >Sign In here ?</Button>
          </Link>
-        
-        
          </Form.Item>
          </Col>
          <Col xs={8} sm={8} md={8} lg={8} xl={8}></Col>
          </Row>
          </Form>
       </Card>
-     
       </Col>
       <Col xs={2} sm={2} md={6} lg={8} xl={8}></Col>
     </Row>
-    
         </div>
     )
 };

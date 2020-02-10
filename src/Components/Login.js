@@ -16,7 +16,9 @@ export default function Login(props) {
   let[pass,setPass]=useState("");
   // console.log(username,email,password)
 
-
+let forgotHandler=()=>{
+  alert("Working in progresss")
+}
   let handlerLogin=(e)=>{
     e.preventDefault();
   let logindata={
@@ -100,7 +102,7 @@ alert("please enter valid email and password");
         <Row>
         <Col xs={6} sm={6} md={6} lg={10} xl={16}></Col>
         <Col xs={18} sm={18} md={18} lg={14} xl={8}>
-        <Link to="/Forgot" style={{}} className="login-form-forgot" >
+        <Link  style={{}} onClick={forgotHandler} className="login-form-forgot" >
         Forgot password
       </Link>
         </Col>
