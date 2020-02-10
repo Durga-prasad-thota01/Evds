@@ -38,7 +38,7 @@ export default function Sucess(props) {
             <h3  style={{textAlign:"center"}} >{mob}</h3>
             <h3  style={{textAlign:"center"}} >with {amunt} Rs</h3>
             <Row>
-      <Col  xs={5} sm={5} md={5} lg={8} xl={3}></Col>
+      <Col  xs={5} sm={5} md={5} lg={8} xl={2}></Col>
       <Col xs={14} sm={14} md={14} lg={8} xl={6}></Col>
              <Link to="/Home" >
          <Button  style={{textAlign:"center"}} type="primary">New Recharge</Button>

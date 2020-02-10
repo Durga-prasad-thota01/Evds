@@ -3,19 +3,17 @@ import { Input } from 'antd';
 import { Row, Col ,Card} from 'antd';
 import { Modal, Button } from 'antd';
 import { Menu, Icon,Form } from 'antd';
-import { Collapse } from 'antd';
+import { Collapse,Typography } from 'antd';
 import 'antd/dist/antd.css'; 
 import './History.css';
 import moment from 'moment';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-
+const { Paragraph } = Typography;
 const History=(props)=>{
 let[data,setData]=useState([]);
-    
 let[visible,setVisible]=useState(false);
 const { Panel } = Collapse;
-
 useEffect(()=>{  
   if (!localStorage.length)   
   {
@@ -28,6 +26,8 @@ useEffect(()=>{
   let key=localStorage.getItem("token");
     
     axios.get("https://evd-project.herokuapp.com/api/recharge/",
+
+    
     {headers: {'content-type':'application/json','Authorization':`Token ${key}` }}
     )
         .then(resp=>{setData(resp.data)})
@@ -77,7 +77,7 @@ function callback(key) {
       <div>{i.amount} /-  </div>
       </Col>
       <Col xs={13} sm={13} md={11} lg={11} xl={10}>
-      <div >{ moment(i.recharged_datetime).format('MMMM Do YYYY, h:mm a')}</div>
+      <div >{ moment(i.recharged_date_time).format('MMMM Do YYYY, h:mm a')}</div>
       </Col> <br/><br/>
       <Col xs={1} sm={1} md={1} lg={11} xl={2} ></Col>
     </Row>
@@ -86,9 +86,21 @@ function callback(key) {
       <Col xs={0} sm={0} md={0} lg={0} xl={2}> </Col>
       <Col xs={24} sm={24} md={24} lg={24} xl={24}>
       <Card title="Payment Details " bordered={true} style={{borderRadius:"10px",border:"1px solid black"}} >
-      <p>Transaction Id:</p> {i.transaction_id}<br></br>
-         <br></br>
-      
+        
+<Row>
+<Col xs={2} sm={2} md={2} lg={2} xl={2}> </Col>
+<Col xs={20} sm={20} md={22} lg={22} xl={22}>
+<p>Transaction Id:</p> 
+<Paragraph ellipsis>
+{i.transaction_id}
+</Paragraph>
+
+
+   </Col>
+
+   <Col xs={2} sm={2} md={2} lg={2} xl={2}> </Col>
+  </Row>
+
       
 
          </Card>

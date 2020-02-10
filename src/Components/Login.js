@@ -35,17 +35,26 @@ export default function Login(props) {
   )
   // { headers: {"Authorization" : ` token ${}`}})
     
-    .then(resp=>{ console.log(resp.data)
-      if(resp.data){     
-        let key=resp.data.key;
-      localStorage.setItem("token",key)
-  
-        props.history.push("/Home");       
-      }
+  .then(resp=>{ console.log(resp.data)
+    if(resp.data){     
+      let key=resp.data.key;
+    localStorage.setItem("token",key)
+
+      props.history.push("/Home");       
+    }
+    else{
+      alert("You are not authorized to perform this action");
+    }
+}
+,(error=>{
+
+alert("please enter valid email and password");
 })
+)
   }
     return (
         <div >
+      
          <Row>
       <Col xs={2} sm={2} md={6} lg={8} xl={8}></Col>
       <Col  xs={20} sm={20} md={12} lg={8} xl={8}>

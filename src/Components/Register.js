@@ -41,16 +41,19 @@ import axios from 'axios';
     axios.post("https://evd-project.herokuapp.com/rest-auth/registration/",registerdata)
     .then(resp=>{console.log(resp.data)
       if(resp.data){     
-       
-        props.history.push("/");       
+        
+        alert("Registered succesfully")
+        props.history.push("/");     
       }
-  // else{
-  //   alert("Already Registered ....");
-  // }
+      else{
+        alert("Already Registered ....");
+     }
+    },(error=>{
+      
+        alert("Already Registered ....");
     })
-    
+    )
   }
-   
     return (
         <div >
          <Row>

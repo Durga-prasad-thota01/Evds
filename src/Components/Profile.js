@@ -11,6 +11,7 @@ export default function Profile (props){
     let [edit,setEdit]=useState(true);
     let [hide,setHide]=useState(true)
     let[profile,setProfile]=useState([]);
+    let [id,setId]=useState("");
 
     useEffect(()=>{  
         if (!localStorage.length)   
@@ -18,8 +19,6 @@ export default function Profile (props){
           props.history.push("./"); 
             }
       },[])
-
-
 
     
     let key=localStorage.getItem("token");
@@ -30,15 +29,27 @@ axios.get("https://evd-project.herokuapp.com/api/current_user_profile/",
   {setProfile(resp.data)
 setUsername(resp.data.username)
 setEmail(resp.data.email)
+setId(resp.data.id)
 console.log(resp.data)
-
 }
 )
+
+
 },[])
 let editClickHandler=(username,email)=>{
   setEdit(false);
   setHide(false);
 }
+
+// let updateHandler=()=>{
+//   let username =profile.username;
+//   let email=profile.email
+
+//   axios.put(`https://evd-project.herokuapp.com/api/current_user_profile/${id}`,{username,email})
+//   .then(resp=> 
+//       console.log(resp.data))
+//   }
+
 let handleSubmit=()=>{
   // alert(username)
 

@@ -5,15 +5,12 @@ import Mobile from './Mobile';
 import Profile from './Profile';
 import History from './History';
 import Logout from './Logout';
-
 import { Tabs } from 'antd';
 const { TabPane } = Tabs;
-
 function callback(key) {
     console.log(key);
   }
 export default function Home(props) {
-
   useEffect(()=>{  
     if (!localStorage.length)   
     {
@@ -22,7 +19,6 @@ export default function Home(props) {
   },[])
     return (
         <div >
-
         <Tabs onChange={callback} type="card">
         <TabPane tab="Recharge" key="1">
           <Mobile/>
