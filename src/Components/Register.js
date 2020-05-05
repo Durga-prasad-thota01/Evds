@@ -142,9 +142,7 @@ import axios from 'axios';
          >Sign Up</Button>
          </Form.Item>
          <Form.Item>
-
-         <Link to="/"  >
-
+         <Link to="/" >
          <Button type="primary"
          >Sign In here ?</Button>
          </Link>

@@ -26,7 +26,8 @@ useEffect(()=>{
 axios.get("https://evd-project.herokuapp.com/api/current_user_profile/",
 {headers: {'content-type':'application/json','Authorization':`Token ${key}` }})
 .then (resp=>
-  {setProfile(resp.data)
+  {
+    setProfile(resp.data)
 setUsername(resp.data.username)
 setEmail(resp.data.email)
 setId(resp.data.id)

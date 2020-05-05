@@ -71,7 +71,7 @@ let changeHandler=(e)=>{
     let data={
       "mobile_number":mobileno,
        "amount":amount,
-      "recharged_date_time": moment().format(),
+      "recharged_date_time": moment().format()
     }
     let key=localStorage.getItem("token");
     //  console.log(mobile,amt)  ;
@@ -85,7 +85,6 @@ let changeHandler=(e)=>{
         localStorage.setItem("amt",amount);
         props.history.push("/Sucess");       
       }
-     
       else{
         props.history.push("/Fail"); 
       }
@@ -134,8 +133,8 @@ placeholder="Mobile Number"
 />
 </Form.Item>
 <Form.Item>
+
 <Input
- 
   type="tel"
   placeholder="Amount"
   minLength="1"

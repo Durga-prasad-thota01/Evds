@@ -2,12 +2,10 @@ import React,{useState} from 'react';
 import 'antd/dist/antd.css';
 import { Card } from 'antd';
 import { Row, Col } from 'antd';
-
 import axios from 'axios';
 import { Input } from 'antd';
 import { Link } from "react-router-dom";
 import { Form, Icon,Checkbox } from 'antd';
-
 import { Button } from 'antd';
 export default function Login(props) {
 
@@ -25,17 +23,13 @@ let forgotHandler=()=>{
     // "username":usrname,
     "email":gmail,
     "password":pass
-   
+
   }
   // console.log(username,email,password)
 
   axios.post("https://evd-project.herokuapp.com/rest-auth/login/",logindata
-  // {
-  //   headers: {
-  //       Authorization: token ? `Token ${key}`}
-  //     }
   )
-  // { headers: {"Authorization" : ` token ${}`}})
+  
     
   .then(resp=>{ console.log(resp.data)
     if(resp.data){     
@@ -120,7 +114,6 @@ alert("please enter valid email and password");
      <p style={{marginLeft:"26px"}} > OR </p>
           <Link to="/Register" style={{}}>
           <Button type="primary" style={{}} htmlType="submit" >
-
           Sign Up Here
           </Button> </Link>
           </Col>
@@ -128,7 +121,6 @@ alert("please enter valid email and password");
           </Row>
         </Form.Item>
       </Form>
-
       </Card>
       </Col>
       <Col xs={2} sm={2} md={6} lg={8} xl={8}></Col>
